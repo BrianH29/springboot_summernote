@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<th:block th:replace="fragment/header :: header"></th:block>
+<div class="container">
+  <h2>Bulletin Board</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>no.</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>작성일</th>
+    </tr>
+    </thead>
+    <tbody id="list">
+    <tr th:each="board : ${boardList}">
+      <td><span th:text="${board.id}" th:value="${board.id}">1</span></td>
+      <td>
+        <a th:href="@{'/post/' + ${board.id}}">
+          <span th:text="${board.title}">오늘도 화이팅</span>
+        </a>
+      </td>
+<!--      <td><span th:text="${board.writer}">Jack</span></td>
+      <td><span th:inline="text">[[${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}]]</span></td>-->
+    </tr>
+    </tbody>
+  </table>
+
+  <a class="btn btn-light" th:href="@{/write}">글쓰기</a>
+</div>
+
+<!--<script th:inline="javascript">
+        /*<![CDATA[*/
+        var board = /*[[${boardList}]]*/ "";
+        /*]]>*/
+</script>-->
+
+
+</body>
+</html>
