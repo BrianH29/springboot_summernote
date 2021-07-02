@@ -31,21 +31,12 @@
           <span th:text="${board.title}">오늘도 화이팅</span>
         </a>
       </td>
-<!--      <td><span th:text="${board.writer}">Jack</span></td>
-      <td><span th:inline="text">[[${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}]]</span></td>-->
     </tr>
     </tbody>
   </table>
 
   <a class="btn btn-light" th:href="@{/write}">글쓰기</a>
 </div>
-
-<!--<script th:inline="javascript">
-        /*<![CDATA[*/
-        var board = /*[[${boardList}]]*/ "";
-        /*]]>*/
-</script>-->
-
 
 </body>
 </html>

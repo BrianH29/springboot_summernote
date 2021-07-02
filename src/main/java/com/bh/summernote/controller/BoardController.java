@@ -45,7 +45,8 @@ public class BoardController {
 
     //글쓰기 버튼 클릭시
     @GetMapping("/write")
-    public String write(){
+    public String write(BoardDto boardDto, Model model){
+        model.addAttribute("boardDto", boardDto);
         return "index";
     }
 

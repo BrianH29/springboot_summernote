@@ -32,6 +32,7 @@ public class BoardService {
 
         for(Board board : boards){
             BoardDto boardDto = BoardDto.builder()
+                    .id(board.getId())
                     .title(board.getTitle())
                     .content(board.getContent())
                     .build();
